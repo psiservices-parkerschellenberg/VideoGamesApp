@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Search</h1>
+    <p>Select a developer and game below.</p>
+    <div style="display:flex; justify-content:center; gap: 30px;">
+        <select class="dev-input">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+        <select class="game-input">
+            <option value="choice1">Choice 1</option>
+            <option value="choice2">Choice 2</option>
+            <option value="choice3">Choice 3</option>
+        </select>
+    </div>
 </div>
+
+<script defer>
+    const input_Dev = document.querySelector('.dev-input');
+    const input_Game = document.querySelector('.game-input');
+    console.log(input_Dev);
+</script>
