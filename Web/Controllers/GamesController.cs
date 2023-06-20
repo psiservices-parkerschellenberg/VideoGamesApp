@@ -20,7 +20,7 @@ namespace Web.Controllers
         }
 
         // GET: Games
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string gameDeveloper)
         {
             if (_context.Game == null)
             {
@@ -35,7 +35,23 @@ namespace Web.Controllers
                 games = games.Where(s => s.Title!.Contains(searchString));
             }
 
-            return View(await games.ToListAsync());
+            if (!string.IsNullOrEmpty(gameDeveloper))
+            {
+                games = games.Where(x => x.Developer == gameDeveloper);
+            }
+
+            // Use LINQ to get list of developers.
+            IQueryable<string> developerQuery = from m in _context.Game
+                                                orderby m.Developer
+                                                select m.Developer;
+
+            var gameDeveloperVM = new GameDeveloperViewModel
+            {
+                Developers = new SelectList(await developerQuery.Distinct().ToListAsync()),
+                Games = await games.ToListAsync()
+            };
+
+            return View(gameDeveloperVM);
         }
 
         // GET: Games/Details/5
