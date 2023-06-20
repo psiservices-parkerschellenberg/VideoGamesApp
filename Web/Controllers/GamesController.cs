@@ -20,7 +20,7 @@ namespace Web.Controllers
         }
 
         // GET: Games
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string titleSearch, string devSearch)
         {
             if (_context.Game == null)
             {
@@ -30,9 +30,14 @@ namespace Web.Controllers
             var games = from m in _context.Game
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(titleSearch))
             {
-                games = games.Where(s => s.Title!.Contains(searchString));
+                games = games.Where(s => s.Title!.Contains(titleSearch));
+            }
+
+            if (!String.IsNullOrEmpty(devSearch))
+            {
+                games = games.Where(s => s.Developer!.Contains(devSearch));
             }
 
             return View(await games.ToListAsync());

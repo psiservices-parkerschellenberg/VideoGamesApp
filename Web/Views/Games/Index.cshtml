@@ -12,7 +12,14 @@
 
 <form asp-controller="Games" asp-action="Index" method="get">
     <p>
-        Title: <input type="text" name="SearchString" />
+        Title: <input type="text" name="titleSearch" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<form asp-controller="Games" asp-action="Index" method="get">
+    <p>
+        Developer: <input type="text" name="devSearch" />
         <input type="submit" value="Filter" />
     </p>
 </form>
