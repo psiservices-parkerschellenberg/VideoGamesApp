@@ -20,11 +20,22 @@ namespace Web.Controllers
         }
 
         // GET: Games
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Game != null ? 
-                          View(await _context.Game.ToListAsync()) :
-                          Problem("Entity set 'WebContext.Game'  is null.");
+            if (_context.Game == null)
+            {
+                return Problem("Entity set 'WebContext.Game' is null.");
+            }
+
+            var games = from m in _context.Game
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                games = games.Where(s => s.Title!.Contains(searchString));
+            }
+
+            return View(await games.ToListAsync());
         }
 
         // GET: Games/Details/5
