@@ -4,7 +4,7 @@ First attempt to make a video games app which stores data on different video gam
 
 
 
-Used Visual Studio project template: ASP.NET Core Web App - a project template for creating an ASP.NET Core application with Razor Pages (cshtml)
+Used Visual Studio project template: ASP.NET Core Web App (Model-View-Controller) - a project template for creating an ASP.NET Core application with example ASP.NET Core MVC Views and Controllers and Razor Pages (cshtml)
 
 
 
