@@ -4,10 +4,12 @@ First attempt to make a video games app which stores data on different video gam
 
 
 
-Used Visual Studio project template: ASP.NET Core Web App (Model-View-Controller) - a project template for creating an ASP.NET Core application with example ASP.NET Core MVC Views and Controllers and Razor Pages (cshtml)
+Used Visual Studio project template: ASP.NET Core Web App (Model-View-Controller) - a project template for creating an ASP.NET Core application with example Views and Controllers
 
 
 
-Used Microsoft Entity Framework for ORM
+Front end using Razor Pages (cshtml)
 
-Used SQL Server Management Studio (SSMS) to create and manage the database
+Microsoft Entity Framework for ORM
+
+SQL Server Management Studio (SSMS) to create and manage the database
